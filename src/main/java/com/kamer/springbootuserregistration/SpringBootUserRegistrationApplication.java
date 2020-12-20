@@ -1,12 +1,14 @@
-﻿package com.olemba;
+package com.kamer.springbootuserregistration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class USER-LOGIN-SIGN-IN {
+public class SpringBootUserRegistrationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(USER-LOGIN-SIGN-IN.class, args);
+		SpringApplication.run(SpringBootUserRegistrationApplication.class, args);
 	}
+
 }
+
