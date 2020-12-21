@@ -1,39 +1,48 @@
 'use strict';
 
+<!-- LOGIN AND REGISTER POPUP --------------------------------------------- -->
+function openFormIn() {
+  document.getElementById("sign_in").style.display = "block";
+}
+
+function closeFormIn() {
+  document.getElementById("sign_in").style.display = "none";
+}
+
+function openFormUp() {
+  document.getElementById("sign_up").style.display = "block";
+}
+
+function closeFormUp() {
+  document.getElementById("sign_up").style.display = "none";
+}
 
 
 <!-- HEATMAP SECTION ------------------------------------------------------ -->
-const a = React.createElement;
+const HttpHeatMap = new XMLHttpRequest();
+const urlHeatMap = '/';
+HttpHeatMap.open("GET", urlHeatMap);
+HttpHeatMap.send();
 
-class HeatMap extends React.Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return a(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Heatmap PlaceHolder'
-    );
-  }
+HttpSign.onreadystatechange = (e) => {
+  document.getElementById("heatmap").innerHTML = HttpHeatMap.responseText;
 }
 
-const HeatMapContainer = document.querySelector('#heatmap');
-ReactDOM.render(a(HeatMap), HeatMapContainer);
 
+<!-- COVID TRACKER -------------------------------------------------------- -->
+const HttpTracker = new XMLHttpRequest();
+const urlTracker = '/data';
+HttpTracker.open("GET", urlTracker);
+HttpTracker.send();
+
+HttpSign.onreadystatechange = (e) => {
+  document.getElementById("tracker").innerHTML = HttpTracker.responseText;
+}
 
 
 <!-- COMMENT SECTION ------------------------------------------------------ -->
-
-
-<!-- SIGN UP -->
-
-
-
-
-<!-- COMMENT LIST ---- -->
 const HttpComments = new XMLHttpRequest();
-const urlComments= '';
+const urlComments= '/api/reviews';
 HttpComments.open("GET", urlComments);
 HttpComments.send();
 
@@ -46,64 +55,11 @@ function myFunction(arr) {
   var out = "";
   var i;
   for(i = 0; i < arr.length; i++) {
-    out += arr[i].username + '<br>' + arr[i].comment + '<br>'
-    + arr[i].date;
+    out += arr[i].id + '<br>' + arr[i].country + '<br>'
+    + arr[i].postDate + '<br><br>' + arr[i].textbox;
   }
-  document.getElementById("#comment_list").innerHTML = out;
+  document.getElementById("comment_list").innerHTML = out;
 }
 
 
-
-<!-- LIKE BUTTON -->
-const l = React.createElement;
-
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-
-    return l(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
-    );
-  }
-}
-const likeContainer = document.querySelector('#like_button');
-ReactDOM.render(l(LikeButton), likeContainer);
-
-
-
-<!-- REPORT BUTTON -->
-const r = React.createElement;
-
-class ReportButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'Comment Reported.';
-    }
-
-    return r(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Report'
-    );
-  }
-}
-const ReportContainer = document.querySelector('#report_button');
-ReactDOM.render(r(ReportButton), ReportContainer);
-
-
-
-<!-- END ----------------------------------------------------------------0- -->
+<!-- END ------------------------------------------------------------------ -->

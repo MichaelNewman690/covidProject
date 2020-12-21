@@ -5,44 +5,68 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <h1>COVID COUNTRY CHECKER</h1>
 
+    <!-- HEATMAP  -->
     <div id = "heatmap"></div>
 
 
     <div id = "account">
-      <div id = "sign_up">
-        <div class="form-popup" id="myForm">
-          <form action="url"">
-            <h3>Login</h3>
 
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+      <!-- REGISTER AND LOGIN BUTTONS -> POPUP FORMS  -->
+      <button onclick="openFormIn()"><h3>Login</h3></button>
+      <button onclick="openFormUp()"><h3>Register</h3></button>
 
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
+      <!-- LOGIN  -->
+      <div class="form-popup" id="sign_in">
+        <form action="/action_page.php" class="form-container">
+          <h3>Login</h3>
 
-            <button type="submit" class="btn">Login</button>
-            <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-          </form>
-        </div>
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
       </div>
-      <div id = "register"></div>
+
+      <!-- REGISTER  -->
+      <div class="form-popup" id="sign_up">
+        <form action="/action_page.php" class="form-container">
+          <h3>Register</h3>
+
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+
     </div>
 
+    <!-- TRACKING COVID w/ COUNTRY  -->
+    <div id = "tracker"></div>
 
+    <!-- REVIEWS  -->
     <div id = "comment_section">
+        <br><br>
         <div id = "message_box">
           <div>Leave a comment</div>
-          <form action="url" method="get" target="_blank">
-            <input type="text" id="userComment" name="comment" size="90" >
+          <form action="/api/reviews" method="post" target="">
+            <textarea id="userComment" name="textbox" cols="50" rows="10"></textarea>
             <br><br>
             <input type="submit" value="Submit">
           </form>
         </div>
 
         <div id = "comment_list"></div>
-        <div id = "like_button"></div>
-        <div id = "report_button"></div>
     </div>
 
 
