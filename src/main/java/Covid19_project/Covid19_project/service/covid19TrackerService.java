@@ -29,6 +29,8 @@ public class covid19TrackerService {
     @PostConstruct
     @Scheduled(cron = "* * 1 * * *")
     public void fetchData() throws IOException, InterruptedException {
+        
+        // convert all the online data so that it can be processed
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(URL))
@@ -38,7 +40,10 @@ public class covid19TrackerService {
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
 
         int id = 1;
+        // loops through the data
         for (CSVRecord record : records) {
+            
+            // save them into a model
             covid19TrackerModel Covid19TrackerModel = new covid19TrackerModel();
             Covid19TrackerModel.setId(id);
             Covid19TrackerModel.setState(record.get("Province/State"));
@@ -47,11 +52,14 @@ public class covid19TrackerService {
             int prevDayCases = Integer.parseInt(record.get(record.size()-2));
             Covid19TrackerModel.setLatestTotalCases(lastCases);
             Covid19TrackerModel.setDiffFromPrevDay(lastCases-prevDayCases);
+            
+            // save each model into a repository
             Covid19TrackerRepository.save(Covid19TrackerModel);
             id++;
         }
     }
 
+    // return a list that contains all the data from the repository 
     public List<covid19TrackerModel> getAllData() {
         List<covid19TrackerModel> list = new ArrayList<>();
         Covid19TrackerRepository.findAll().forEach(list::add);
