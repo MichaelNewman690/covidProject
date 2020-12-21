@@ -1,4 +1,4 @@
-package com.kamer.springbootuserregistration;
+package com.nero.springbootuserregistration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

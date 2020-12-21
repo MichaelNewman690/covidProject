@@ -1,6 +1,6 @@
-package com.kamer.springbootuserregistration.config;
+package com.nero.springbootuserregistration.config;
 
-import com.kamer.springbootuserregistration.user.UserService;
+import com.nero.springbootuserregistration.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

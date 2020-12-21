@@ -1,4 +1,4 @@
-package com.kamer.springbootuserregistration.config;
+package com.nero.springbootuserregistration.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

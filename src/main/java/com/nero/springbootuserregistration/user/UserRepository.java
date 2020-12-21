@@ -1,6 +1,6 @@
-package com.kamer.springbootuserregistration.user;
+package com.nero.springbootuserregistration.user;
 
-import com.kamer.springbootuserregistration.entity.User;
+import com.nero.springbootuserregistration.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

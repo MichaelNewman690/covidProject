@@ -1,4 +1,4 @@
-package com.kamer.springbootuserregistration.user;
+package com.nero.springbootuserregistration.user;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.kamer.springbootuserregistration.user;
+package com.nero.springbootuserregistration.user;
 
-import com.kamer.springbootuserregistration.entity.User;
+import com.nero.springbootuserregistration.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.kamer.springbootuserregistration.entity;
+package com.nero.springbootuserregistration.entity;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

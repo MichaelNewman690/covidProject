@@ -1,4 +1,4 @@
-package com.kamer.springbootuserregistration.user;
+package com.nero.springbootuserregistration.user;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
