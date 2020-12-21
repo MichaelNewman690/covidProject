@@ -17,12 +17,17 @@ public class covid19TrackerContoller {
 
     @GetMapping("/data")
     public String getAllData(Model model){
+        // Receive all the data from the service
         List<covid19TrackerModel> allData = Covid19TrackerService.getAllData();
         int totalReportedCases = allData.stream().mapToInt(stat -> stat.getLatestTotalCases()).sum();
         int totalNewCases = allData.stream().mapToInt(stat -> stat.getDiffFromPrevDay()).sum();
+        
+        // convert the data so that it can be received from an HTML file
         model.addAttribute("allData", allData);
         model.addAttribute("totalReportedCases", totalReportedCases);
         model.addAttribute("totalNewCases", totalNewCases);
+        
+        // connect to an HTML file
         return "data";
     }
 }
